@@ -243,7 +243,28 @@
                     android:textColor="@android:color/white"
                     android:textSize="20.0sp" />
 
+
             </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/mybutton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/pm2_5_content">
+                <Button android:id="@+id/btnStartService"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                android:text="启动服务"
+                android:onClick="startService"/>
+                <Button android:id="@+id/btnStopService"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@id/btnStartService"
+                android:text="停止服务"
+                android:onClick="stopService" />
+                </RelativeLayout>
+
         </RelativeLayout>
 
         <!-- 七日天气信息 -->

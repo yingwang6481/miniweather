@@ -8,7 +8,9 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,6 +26,7 @@ import java.io.StringReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import cn.edu.pku.wangying.app.MyApplication;
 import cn.edu.pku.wangying.bean.TodayWeather;
 import cn.edu.pku.wangying.util.NetUtil;
 
@@ -78,6 +81,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         setContentView(R.layout.weather_info);
         mUpdateBtn = (ImageView) findViewById(R.id.title_update_btn);
         mUpdateBtn.setOnClickListener(this);
+
         if (NetUtil.getNetworkState(this) != NetUtil.NETWORN_NONE) {
             Log.d("myWeather", "网络OK");
             Toast.makeText(MainActivity.this, "网络OK!", Toast.LENGTH_LONG).show();
@@ -88,11 +92,24 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         mCitySelect=(ImageView) findViewById(R.id.title_city_manager);
         mCitySelect.setOnClickListener(this);
+
+
+
         initView();
+
+    }
+    public void startService(View view) {
+        startService(new Intent(getBaseContext(), MyService.class));
+        Log.d("myWeather", "启动服务");
     }
 
+    public void stopService(View view) {
+        stopService(new Intent(getBaseContext(), MyService.class));
+        Log.d("myWeather", "终止服务");
+    }
     @Override
     public void onClick(View view) {
+
         if(view.getId()==R.id.title_city_manager){
             Intent i=new Intent(this,SelectCity.class);
           //  startActivity(i);
@@ -110,6 +127,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 Toast.makeText(MainActivity.this, "网络挂了！", Toast.LENGTH_LONG).show();
             }
         }
+
     }
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == 1 && resultCode == RESULT_OK) {

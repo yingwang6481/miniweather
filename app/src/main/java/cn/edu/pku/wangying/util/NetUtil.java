@@ -5,7 +5,7 @@ package cn.edu.pku.wangying.util;
  */
 import android.content.Context;
 import android.net.ConnectivityManager;
-import android.net.NetworkInfo.State;
+import android.net.NetworkInfo;
 
 public class NetUtil {
     public static final int NETWORN_NONE = 0;
@@ -15,16 +15,14 @@ public class NetUtil {
     public static int getNetworkState(Context context) {
         ConnectivityManager connManager = (ConnectivityManager) context
                 .getSystemService(Context.CONNECTIVITY_SERVICE);
-        //Wifi
-        State state=connManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI)
-                .getState();
-        if(state==State.CONNECTED||state==State.CONNECTING){
-            return NETWORN_WIFI;
-        }
-        state=connManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState();
-        if(state==State.CONNECTED||state==State.CONNECTING){
+        NetworkInfo networkInfo = connManager.getActiveNetworkInfo();
+        if (networkInfo == null) {
+            return NETWORN_NONE;
+        } int nType = networkInfo.getType();
+        if (nType == ConnectivityManager.TYPE_MOBILE) {
             return NETWORN_MOBILE;
-        }
-        return NETWORN_NONE;
+        } else if (nType == ConnectivityManager.TYPE_WIFI) {
+            return NETWORN_WIFI;
+        } return NETWORN_NONE;
     }
 }

@@ -21,11 +21,11 @@ public class MyApplication extends Application{
     private static final String TAG="MyAPP";
     private static MyApplication myApplication;
     private CityDB mCityDB;
-    private List<City> mCityList;
+    public List<City> mCityList;
     @Override
     public void onCreate(){
         super.onCreate();
-        Log.d(TAG,"MyApplication->Oncreate");
+      //  Log.d(TAG,"MyApplication->Oncreate");
         myApplication=this;
         mCityDB=openCityDB();
         initCityList();
@@ -46,10 +46,11 @@ public class MyApplication extends Application{
             i++;
             String cityName = city.getCity();
             String cityCode = city.getNumber();
-            Log.d(TAG,cityCode+":"+cityName);
+       //     Log.d(TAG,cityCode+":"+cityName);
         } Log.d(TAG,"i="+i);
         return true;
-    } public List<City> getCityList() {
+    }
+    public List<City> getCityList() {
         return mCityList;
     }
 
