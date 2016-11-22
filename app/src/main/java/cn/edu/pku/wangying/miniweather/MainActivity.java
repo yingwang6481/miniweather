@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,6 +36,7 @@ import cn.edu.pku.wangying.util.NetUtil;
  */
 public class MainActivity extends Activity implements View.OnClickListener {
     private static final int UPDATE_TODAY_WEATHER=1;
+    private ProgressBar btn;
     private ImageView mUpdateBtn;
     private ImageView mCitySelect;
     private TextView cityTv,timeTv,humidityTv,weekTv,pmDataTv,pmQualityTv,temperatureTv,climateTv,windTv,city_name_Tv;
@@ -64,6 +66,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         climateTv = (TextView) findViewById(R.id.climate);
         windTv = (TextView) findViewById(R.id.wind);
         weatherImg = (ImageView) findViewById(R.id.weather_img);
+
         city_name_Tv.setText("N/A");
         cityTv.setText("N/A");
         timeTv.setText("N/A");
@@ -80,6 +83,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.weather_info);
         mUpdateBtn = (ImageView) findViewById(R.id.title_update_btn);
+        btn=(ProgressBar)findViewById(R.id.title_update_progress);
         mUpdateBtn.setOnClickListener(this);
 
         if (NetUtil.getNetworkState(this) != NetUtil.NETWORN_NONE) {
@@ -96,7 +100,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
 
         initView();
-
+        Log.d("myWeather","oncreate调用");
     }
     public void startService(View view) {
         startService(new Intent(getBaseContext(), MyService.class));
@@ -116,6 +120,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
             startActivityForResult(i,1);
         }
         if (view.getId() == R.id.title_update_btn) {
+            mUpdateBtn.setVisibility(View.GONE);
+            btn.setVisibility(View.VISIBLE);
             SharedPreferences sharedPreferences = getSharedPreferences("config", MODE_PRIVATE);
             String cityCode = sharedPreferences.getString("main_city_code", "101010100");
             Log.d("myWeather", cityCode);
@@ -126,6 +132,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 Log.d("myWeather", "网络挂了");
                 Toast.makeText(MainActivity.this, "网络挂了！", Toast.LENGTH_LONG).show();
             }
+
+
+
+
         }
 
     }
@@ -151,12 +161,14 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private void queryWeatherCode(String cityCode) {
         final String address = "http://wthrcdn.etouch.cn/WeatherApi?citykey=" + cityCode;
         Log.d("myWeather", address);
+
         new Thread(new Runnable() {
             @Override
             public void run() {
                 HttpURLConnection con = null;
                 TodayWeather todayWeather=null;
                 try {
+
                     URL url = new URL(address);
                     con = (HttpURLConnection) url.openConnection();
                     con.setRequestMethod("GET");
@@ -187,8 +199,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
                         con.disconnect();
                     }
                 }
+
             }
         }).start();
+
+
     }
     private TodayWeather parseXML(String xmldata){
         TodayWeather todayWeather=null;
@@ -273,6 +288,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         return todayWeather;
     }
     void updateTodayWeather(TodayWeather todayWeather){
+
         city_name_Tv.setText(todayWeather.getCity()+"天气");
         cityTv.setText(todayWeather.getCity());
         timeTv.setText(todayWeather.getUpdatetime()+ "发布");
@@ -337,5 +353,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
         else if(a.equals("中雨"))
             weatherImg.setImageResource(R.drawable.biz_plugin_weather_zhongyu);
         Toast.makeText(MainActivity.this,"更新成功！",Toast.LENGTH_SHORT).show();
+        btn.setVisibility(View.GONE);
+        mUpdateBtn.setVisibility(View.VISIBLE);
     }
+
 }

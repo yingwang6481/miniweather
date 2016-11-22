@@ -32,7 +32,7 @@ public class SelectCity extends Activity implements View.OnClickListener{
         setContentView(R.layout.select_city);
         mBackBtn=(ImageView)findViewById(R.id.title_back);
         mBackBtn.setOnClickListener(this);
-        MyApplication app=(MyApplication)getApplication();
+        MyApplication app= (MyApplication) getApplication();
         List<City> lst=app.getCityList();
         final String[] city=new String[lst.size()];
        final String[] cityId=new String[lst.size()];
