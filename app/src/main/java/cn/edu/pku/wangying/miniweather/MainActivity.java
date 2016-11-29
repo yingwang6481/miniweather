@@ -1,4 +1,4 @@
-package cn.edu.pku.wangying.miniweather;
+﻿package cn.edu.pku.wangying.miniweather;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -32,7 +32,7 @@ import cn.edu.pku.wangying.bean.TodayWeather;
 import cn.edu.pku.wangying.util.NetUtil;
 
 /**
- * Created by wangying on 2016/9/27.
+ * Created by wangying on 2016/9/27.asdasdasdadasdasd
  */
 public class MainActivity extends Activity implements View.OnClickListener {
     private static final int UPDATE_TODAY_WEATHER=1;
