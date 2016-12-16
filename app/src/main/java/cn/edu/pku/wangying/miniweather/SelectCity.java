@@ -26,6 +26,7 @@ public class SelectCity extends Activity implements View.OnClickListener{
 
     private ImageView mBackBtn;
     public String citycode;
+
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);

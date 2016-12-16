@@ -279,6 +279,17 @@
         </RelativeLayout>
 
         <!-- 七日天气信息 -->
+        <RelativeLayout
+            android:layout_below="@id/weather_today"
+            android:layout_width="wrap_content"
+            android:layout_height="200dip">
+            <include
+                android:id="@+id/page"
+                layout="@layout/sixdays"
+                />
+
+
+        </RelativeLayout>
         <!-- 广告等信息 -->
     </LinearLayout>
 </RelativeLayout>
