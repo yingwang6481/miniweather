@@ -1,6 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        config {
+            keyAlias 'china'
+            keyPassword '123456'
+            storeFile file('E:/Android/keystore.jks')
+            storePassword '123456'
+        }
+    }
     compileSdkVersion 24
     buildToolsVersion '24.0.2'
     defaultConfig {
@@ -9,6 +17,11 @@ android {
         targetSdkVersion 24
         versionCode 1
         versionName "1.0"
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
     }
     buildTypes {
         release {
