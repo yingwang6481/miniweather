@@ -24,7 +24,7 @@ public class MyService extends Service{
     public int onStartCommand(Intent intent, int flags, int startId) {
         // We want this service to continue running until it is explicitly
         // stopped, so return sticky.
-        Toast.makeText(this, "Service Start", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "启动服务，测试使用，作用为在控制台每秒输出数字“666”", Toast.LENGTH_LONG).show();
         doSomethingRepeatedly();
 
         return START_STICKY;
@@ -42,6 +42,6 @@ public class MyService extends Service{
         if (timer != null){
             timer.cancel();
         }
-        Toast.makeText(this, "Service Destroyed", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "服务终止", Toast.LENGTH_LONG).show();
     }
 }

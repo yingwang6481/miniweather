@@ -54,6 +54,7 @@
             android:textColor="#ff000000"
             android:textColorHint="#ffcccccc"
             android:textSize="15.0sp" >
+
         </EditText>
     </RelativeLayout>
     <RelativeLayout

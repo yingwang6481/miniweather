@@ -18,7 +18,7 @@
             android:layout_height="fill_parent"
             android:gravity="center_vertical"
             android:paddingLeft="5dip"
-            android:text="25日星期四"
+            android:text="N/A"
             android:textColor="#ffffffff"
             android:textSize="22.0sp" />
         <TextView
@@ -28,7 +28,7 @@
 
             android:gravity="center_vertical"
             android:paddingLeft="5dip"
-            android:text="-2°c~7°c"
+            android:text="N/A"
             android:textColor="#ffffffff"
             android:textSize="22.0sp" />
         <TextView
@@ -38,7 +38,7 @@
 
             android:gravity="center"
 
-            android:text="雾"
+            android:text="N/A"
             android:textColor="#ffffffff"
             android:textSize="22.0sp" />
         <TextView
@@ -48,7 +48,7 @@
 
             android:gravity="center"
             android:paddingLeft="5dip"
-            android:text="微风"
+            android:text="N/A"
             android:textColor="#ffffffff"
             android:textSize="22.0sp" />
     </LinearLayout>
@@ -65,7 +65,7 @@
             android:layout_height="fill_parent"
             android:gravity="center_vertical"
             android:paddingLeft="5dip"
-            android:text="25日星期四"
+            android:text="N/A"
             android:textColor="#ffffffff"
             android:textSize="22.0sp" />
         <TextView
@@ -75,7 +75,7 @@
 
             android:gravity="center_vertical"
             android:paddingLeft="5dip"
-            android:text="-2°c~7°c"
+            android:text="N/A"
             android:textColor="#ffffffff"
             android:textSize="22.0sp" />
         <TextView
@@ -85,7 +85,7 @@
 
             android:gravity="center"
 
-            android:text="雾"
+            android:text="N/A"
             android:textColor="#ffffffff"
             android:textSize="22.0sp" />
         <TextView
@@ -95,7 +95,7 @@
 
             android:gravity="center"
             android:paddingLeft="5dip"
-            android:text="微风"
+            android:text="N/A"
             android:textColor="#ffffffff"
             android:textSize="22.0sp" />
     </LinearLayout>
@@ -112,7 +112,7 @@
             android:layout_height="fill_parent"
             android:gravity="center_vertical"
             android:paddingLeft="5dip"
-            android:text="25日星期四"
+            android:text="N/A"
             android:textColor="#ffffffff"
             android:textSize="22.0sp" />
         <TextView
@@ -122,7 +122,7 @@
 
             android:gravity="center_vertical"
             android:paddingLeft="5dip"
-            android:text="-2°c~7°c"
+            android:text="N/A"
             android:textColor="#ffffffff"
             android:textSize="22.0sp" />
         <TextView
@@ -132,7 +132,7 @@
 
             android:gravity="center"
 
-            android:text="雾"
+            android:text="N/A"
             android:textColor="#ffffffff"
             android:textSize="22.0sp" />
         <TextView
@@ -142,7 +142,7 @@
 
             android:gravity="center"
             android:paddingLeft="5dip"
-            android:text="微风"
+            android:text="N/A"
             android:textColor="#ffffffff"
             android:textSize="22.0sp" />
     </LinearLayout>

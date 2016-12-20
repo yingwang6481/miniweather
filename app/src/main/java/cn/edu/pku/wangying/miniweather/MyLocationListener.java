@@ -1,3 +1,4 @@
+/*
 package cn.edu.pku.wangying.miniweather;
 
 import android.util.Log;
@@ -8,9 +9,11 @@ import com.baidu.location.Poi;
 
 import java.util.List;
 
+*/
 /**
  * Created by wangying on 2016/12/20.
- */
+ *//*
+
 public class MyLocationListener implements BDLocationListener {
 
     @Override
@@ -75,4 +78,4 @@ public class MyLocationListener implements BDLocationListener {
         }
         Log.i("BaiduLocationApiDem", sb.toString());
     }
-}
+}*/
